@@ -101,10 +101,7 @@ export const SingleEvent = ({ event }: { event: Event }) => {
   return (
     <div className="event">
       <div className="event__title">
-        <div
-          className="tags"
-          style={{ display: "flex", flexDirection: "column", gap: 5 }}
-        >
+        <div className="tags">
           {event.tag.map((t) => (
             <SingleTag bgColor={logoStyle[t]} tag={t} key={t} />
           ))}

@@ -39,6 +39,8 @@
 
 .navbar_left .filter__label {
   margin-left: 10px;
+  color: white;
+  font-size: 0.8rem;
 }
 
 .navbar_left .filter__label select {

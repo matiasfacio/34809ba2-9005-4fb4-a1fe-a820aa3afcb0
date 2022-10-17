@@ -26,10 +26,7 @@ const NavBar = () => {
       <div className="navbar_left">
         <Search />
         <div className="filter">
-          <label
-            style={{ color: "white", fontSize: "0.8rem" }}
-            className="filter__label"
-          >
+          <label className="filter__label">
             Filter by:
             <select
               onChange={(e) => handleSort(e.target.value as Tag)}

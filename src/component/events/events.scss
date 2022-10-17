@@ -111,18 +111,24 @@
     color: var(--main-dark-color);
     padding: 20px;
     font-weight: bold;
-    height: 60px;
+    height: 50px;
     font-size: 0.8rem;
     display: flex;
+    .tags {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
     .tag {
-      display: inline-block;
       display: block;
+      width: 40px;
       text-align: center;
       padding: 2px 7px;
       margin-right: 10px;
       flex-grow: 0;
       height: fit-content;
       color: white;
+      gap: 5px;
       font-family: "Roboto", sans-serif;
     }
   }
