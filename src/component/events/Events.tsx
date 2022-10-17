@@ -1,4 +1,4 @@
-import { Event, useEvents } from "../../context/EventsContext";
+import { Event, Tag, useEvents } from "../../context/EventsContext";
 import { useNotifications } from "../../context/notifications/NotificationsContext";
 import { useShoppingCart } from "../../context/ShoppingCartContext";
 import mapPinIcon from "../../images/map-pin.svg";
@@ -80,13 +80,14 @@ const NotFound = () => (
   </p>
 );
 
-const logoStyle = {
+const logoStyle: Record<Tag, string> = {
   jazz: "blue",
   festival: "orange",
   party: "pink",
   session: "lightblue",
   rave: "green",
   live: "red",
+  event: "black",
 };
 
 export const SingleEvent = ({ event }: { event: Event }) => {
@@ -104,13 +105,9 @@ export const SingleEvent = ({ event }: { event: Event }) => {
           className="tags"
           style={{ display: "flex", flexDirection: "column", gap: 5 }}
         >
-          {event.tag ? (
-            event.tag.map((t) => (
-              <SingleTag bgColor={logoStyle[t]} tag={t} key={t} />
-            ))
-          ) : (
-            <SingleTag bgColor={"limegreen"} tag={"Event"} />
-          )}
+          {event.tag.map((t) => (
+            <SingleTag bgColor={logoStyle[t]} tag={t} key={t} />
+          ))}
         </div>
         {event.title}
       </div>

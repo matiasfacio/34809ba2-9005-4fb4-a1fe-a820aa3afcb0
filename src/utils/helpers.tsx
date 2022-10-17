@@ -27,7 +27,7 @@ export function searchByTitle(events: Event[], title: string) {
   return events.filter((event) => event.title.includes(title));
 }
 
-const tags: Tag[] = ["festival", "jazz", "party", "rave", "session"];
+const tags: Tag[] = ["festival", "jazz", "party", "rave", "session", "event"];
 
 export const addTag = (groupedByDate: Event[]) => {
   if (!groupedByDate) return null;
@@ -35,16 +35,20 @@ export const addTag = (groupedByDate: Event[]) => {
   let newEvents;
 
   if (groupedByDate) {
-    tags.forEach((t) => {
-      newEvents = groupedByDate.map((event) => {
+    newEvents = groupedByDate.map((event) => {
+      event.tag = [];
+      tags.forEach((t) => {
         if (event.title.toLowerCase().includes(t)) {
-          event.tag ? event.tag.push(t) : (event.tag = [t]);
+          event.tag.push(t);
         }
-        if (event.venue.live && event.tag?.indexOf("live") === -1) {
-          event.tag ? event.tag.push("live") : (event.tag = ["live"]);
+        if (event.venue.live && event.tag.indexOf("live") === -1) {
+          event.tag.push("live");
         }
-        return event;
       });
+      if (event.tag.length === 0 || event.tag.every((t) => t === "live")) {
+        event.tag.push("event");
+      }
+      return event;
     });
   }
 

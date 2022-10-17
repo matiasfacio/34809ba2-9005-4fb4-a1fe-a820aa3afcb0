@@ -8,7 +8,14 @@ import React, {
 import { useFetch } from "../hook/useFetch";
 import { sortEventsByDate, groupByDate, addTag } from "../utils/helpers";
 
-export type Tag = "jazz" | "festival" | "party" | "session" | "rave" | "live";
+export type Tag =
+  | "jazz"
+  | "festival"
+  | "party"
+  | "session"
+  | "rave"
+  | "live"
+  | "event";
 
 export interface Event {
   _id: number;
