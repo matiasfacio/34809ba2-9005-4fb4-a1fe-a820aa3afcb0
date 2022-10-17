@@ -13,12 +13,12 @@ import { logoStyle } from "../events/Events";
 const NavBar = () => {
   const { sortByTag, clearFilters } = useEvents();
 
-  const handleSort = (tag: Tag) => {
-    sortByTag(tag);
-  };
-
-  const handleClearSort = () => {
-    clearFilters();
+  const handleSort = (tag: Tag | "no-filter") => {
+    if (tag === "no-filter") {
+      clearFilters();
+    } else {
+      sortByTag(tag);
+    }
   };
 
   return (
@@ -31,7 +31,11 @@ const NavBar = () => {
             className="filter__label"
           >
             Filter by:
-            <select onChange={(e) => handleSort(e.target.value as Tag)}>
+            <select
+              onChange={(e) => handleSort(e.target.value as Tag)}
+              defaultValue="no-filter"
+            >
+              <option value="no-filter">no-filter</option>
               {Object.keys(logoStyle).map((tag) => (
                 <option value={tag} key={tag}>
                   {tag}
@@ -39,7 +43,6 @@ const NavBar = () => {
               ))}
             </select>
           </label>
-          <button onClick={handleClearSort}>Clear filter</button>
         </div>
       </div>
       <div className="navbar_right">

@@ -25,6 +25,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 10px;
 }
 
 .navbar_left .filter button {
@@ -33,10 +34,16 @@
   color: white;
   padding: 2px 10px;
   margin-left: 5px;
+  border-radius: 5px;
 }
 
 .navbar_left .filter__label {
   margin-left: 10px;
+}
+
+.navbar_left .filter__label select {
+  border-radius: 5px;
+  padding: 2px 5px;
 }
 
 .navbar_right {
