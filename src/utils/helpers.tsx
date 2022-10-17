@@ -54,3 +54,19 @@ export const addTag = (groupedByDate: Event[]) => {
 
   return newEvents;
 };
+
+export const sortEventsByTag = (
+  eventsState: Record<string, Event[]> | undefined,
+  tag: Tag
+) => {
+  let allEvents;
+  if (eventsState) {
+    allEvents = Object.values(eventsState).flat();
+  }
+  const filterByTagResults = allEvents?.filter((event) =>
+    event.tag.includes(tag)
+  );
+  if (filterByTagResults) {
+    return groupByDate(filterByTagResults);
+  }
+};

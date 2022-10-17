@@ -22,6 +22,21 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar_left .filter button {
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  padding: 2px 10px;
+  margin-left: 5px;
+}
+
+.navbar_left .filter__label {
+  margin-left: 10px;
 }
 
 .navbar_right {

@@ -8,7 +8,7 @@ import "./events.css";
 const baseURL = "https://www.google.com/maps/dir";
 
 export const Events = () => {
-  const { events, error, loading } = useEvents();
+  const { events, error, loading, sortedEvents } = useEvents();
 
   if (loading) {
     return (
@@ -33,7 +33,7 @@ export const Events = () => {
     );
   }
 
-  if (!events) {
+  if (!events || !sortedEvents) {
     return null;
   }
 
@@ -43,7 +43,7 @@ export const Events = () => {
 
   return (
     <div className="main__events_container">
-      {Object.entries(events).map((event) => (
+      {Object.entries(sortedEvents).map((event) => (
         <EventsList event={event} key={event[0]} />
       ))}
     </div>
@@ -80,7 +80,7 @@ const NotFound = () => (
   </p>
 );
 
-const logoStyle: Record<Tag, string> = {
+export const logoStyle: Record<Tag, string> = {
   jazz: "blue",
   festival: "orange",
   party: "pink",

@@ -7,12 +7,40 @@ import "./navbar.css";
 import { ModalCartContainer } from "../cart/ModalCartContainer";
 import { ModalCartFooter } from "../cart/ModalCartFooter";
 import { ModalCartHeader } from "../cart/ModalCartHeader";
+import { Tag, useEvents } from "../../context/EventsContext";
+import { logoStyle } from "../events/Events";
 
 const NavBar = () => {
+  const { sortByTag, clearFilters } = useEvents();
+
+  const handleSort = (tag: Tag) => {
+    sortByTag(tag);
+  };
+
+  const handleClearSort = () => {
+    clearFilters();
+  };
+
   return (
     <div className="navbar">
       <div className="navbar_left">
         <Search />
+        <div className="filter">
+          <label
+            style={{ color: "white", fontSize: "0.8rem" }}
+            className="filter__label"
+          >
+            Filter by:
+            <select onChange={(e) => handleSort(e.target.value as Tag)}>
+              {Object.keys(logoStyle).map((tag) => (
+                <option value={tag} key={tag}>
+                  {tag}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button onClick={handleClearSort}>Clear filter</button>
+        </div>
       </div>
       <div className="navbar_right">
         <ShoppingCartIcon />

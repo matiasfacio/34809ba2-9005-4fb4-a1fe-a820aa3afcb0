@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   ReactNode,
   useContext,
@@ -6,7 +6,12 @@ import React, {
   useState,
 } from "react";
 import { useFetch } from "../hook/useFetch";
-import { sortEventsByDate, groupByDate, addTag } from "../utils/helpers";
+import {
+  sortEventsByDate,
+  groupByDate,
+  addTag,
+  sortEventsByTag,
+} from "../utils/helpers";
 
 export type Tag =
   | "jazz"
@@ -34,9 +39,12 @@ export interface Event {
 
 interface EventsContextProps {
   events: Record<string, Event[]> | undefined;
+  sortedEvents: Record<string, Event[]> | undefined;
   searchByTitle: (arg: string) => void;
   error: boolean;
   loading: boolean;
+  sortByTag: (arg: Tag) => void;
+  clearFilters: () => void;
 }
 
 const EventsContext = createContext<EventsContextProps>(
@@ -51,6 +59,7 @@ export const EventsContextProvider = ({
   const [query, setQuery] = useState("");
   const { data: events, error, loading } = useFetch("uk", "london");
   const [eventsState, setEventsState] = useState<Record<string, Event[]>>();
+  const [sortedEvents, setSortedEvents] = useState<Record<string, Event[]>>();
 
   useEffect(() => {
     const sortedEventsByDate = sortEventsByDate(
@@ -63,12 +72,19 @@ export const EventsContextProvider = ({
 
     if (groupedByDate) {
       setEventsState(groupedByDate);
+      setSortedEvents(groupedByDate);
     }
   }, [events, query]);
 
   const searchByTitle = (query: string) => {
     setQuery(query);
   };
+
+  const sortByTag = (tag: Tag) => {
+    setSortedEvents(sortEventsByTag(eventsState, tag));
+  };
+
+  const clearFilters = () => setSortedEvents(eventsState);
 
   return (
     <EventsContext.Provider
@@ -77,6 +93,9 @@ export const EventsContextProvider = ({
         searchByTitle,
         error,
         loading,
+        sortByTag,
+        sortedEvents,
+        clearFilters,
       }}
     >
       {children}
