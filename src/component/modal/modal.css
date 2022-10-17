@@ -1,0 +1,64 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  overflow-y: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal__container {
+  width: clamp(340px, 70%, 600px);
+  background-color: white;
+  -webkit-box-shadow: 0 0 2px var(--main-dark-color);
+          box-shadow: 0 0 2px var(--main-dark-color);
+  position: relative;
+  height: 450px;
+  border-radius: 10px;
+}
+
+.modal__container__close-icon {
+  position: absolute;
+  top: -20px;
+  right: -17px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  background-color: var(--main-color);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 3px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: white;
+  border: 1px transparent solid;
+  cursor: pointer;
+  -webkit-transition: var(--btn-transitions);
+  transition: var(--btn-transitions);
+}
+
+.modal__container__close-icon:hover {
+  color: var(--main-color);
+  background-color: white;
+  border: 1px #494949 solid;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+/*# sourceMappingURL=modal.css.map */

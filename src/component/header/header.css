@@ -1,0 +1,50 @@
+header {
+  height: 100px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 100px;
+  max-width: 840px;
+  padding-inline: 2vw;
+}
+
+header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+}
+
+header .location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+}
+
+header .location__title, header .location__dates-range {
+  text-transform: uppercase;
+  border: 2px var(--main-light-color) solid;
+  border-radius: 9999px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-block: 2px;
+  padding-left: 2px;
+  padding-right: 8px;
+  font-weight: 600;
+  color: var(--main-dark-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2px;
+}
+
+header .location__dates-range {
+  padding-inline: 10px;
+  padding-block: 4px;
+}
+/*# sourceMappingURL=header.css.map */

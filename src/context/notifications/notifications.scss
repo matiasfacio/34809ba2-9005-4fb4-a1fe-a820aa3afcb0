@@ -1,0 +1,29 @@
+.notifications {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 80px;
+  right: 10px;
+  z-index: 100;
+}
+
+.notification {
+  // background-color: var(--main-color);
+  background-color: var(--main-notification-color);
+  padding: 5px 10px;
+  color: white;
+  border-radius: 9999px;
+  margin-bottom: 10px;
+  transform: translateX(100vw);
+  animation: animate-entrance 1s forwards cubic-bezier(0.28, 0.66, 0.77, 0.13);
+  box-shadow: 0 0 10px var(--main-light-color);
+  @media screen and (min-width: 600px) {
+    padding: 20px 20px;
+  }
+}
+
+@keyframes animate-entrance {
+  100% {
+    transform: translateX(0px);
+  }
+}

@@ -1,0 +1,190 @@
+.pagination {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+
+.pagination button {
+  border: none;
+  background-color: transparent;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.event_on-cart-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-bottom: 1px var(--main-light-color) dotted;
+  padding-block: 20px;
+}
+
+.single-event-cart {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 0.5fr minmax(auto, 100px);
+      grid-template-columns: 3fr 0.5fr minmax(auto, 100px);
+  place-items: start;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.single-event-cart img {
+  border-radius: 8px;
+  display: block;
+}
+
+.single-event-cart img:before {
+  content: "no image";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  border-radius: 8px;
+  background-color: #494949;
+}
+
+.single-event-cart > div {
+  max-width: 45ch;
+}
+
+.empty-cart {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  color: var(--main-dark-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn_pay-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.btn_pay-now {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2px;
+  background-color: var(--main-color);
+  color: white;
+  -webkit-transition: var(--btn-transitions);
+  transition: var(--btn-transitions);
+  font-weight: 600;
+}
+
+.btn_pay-now:hover {
+  color: var(--main-color);
+  background-color: white;
+  border: 1px #494949 solid;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.btn_pay-now:disabled {
+  background-color: var(--main-light-color);
+  pointer-events: none;
+}
+
+.delete_icon {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  background-color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 3px 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: white;
+  border: 1px transparent solid;
+  cursor: pointer;
+  -webkit-transition: var(--btn-transitions);
+  transition: var(--btn-transitions);
+}
+
+.item-deleted-notification {
+  color: var(--main-color);
+  font-size: 0.8rem;
+}
+
+.modal__container__internal-container {
+  overflow: hidden;
+  height: 280px;
+  border-radius: 10px;
+  position: relative;
+  padding: 0 20px;
+}
+
+.modal__container__internal-header {
+  padding: 20px;
+}
+
+.modal__container__internal-header > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.modal__container__internal-header h2 {
+  font-size: 1.3rem;
+  color: var(--main-dark-color);
+}
+
+.modal__container__internal-footer {
+  position: absolute;
+  width: 100%;
+}
+/*# sourceMappingURL=cart.css.map */

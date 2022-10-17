@@ -1,0 +1,15 @@
+.search_container {
+  position: relative;
+}
+
+.search_container::before {
+  content: url("../../images/search.svg");
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  left: 4px;
+  top: 7px;
+}
+/*# sourceMappingURL=search.css.map */

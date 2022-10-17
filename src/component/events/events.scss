@@ -1,0 +1,196 @@
+.main__events_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 2vw;
+  margin-bottom: 100vh;
+  &-loading {
+    width: inherit;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  &-error {
+    width: inherit;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(234, 112, 112);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+  }
+}
+
+.events {
+  display: flex;
+  margin-top: 70px;
+  gap: 20px;
+  &__date {
+    color: rgb(76, 76, 76);
+    font-weight: 700;
+    line-height: 1.1;
+    font-family: "Playfair Display", serif;
+    margin-top: 20px;
+    position: sticky;
+    top: 70px;
+    padding: 5px;
+    font-size: 1rem;
+    width: 30px;
+    writing-mode: vertical-lr;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 100px;
+    border-bottom: 3px var(--main-dark-color) solid;
+    flex-grow: 0;
+    height: fit-content;
+    @media screen and (min-width: 500px) {
+      width: 100px;
+      padding: 10px 2px;
+      padding: 30px;
+      font-size: 3rem;
+      writing-mode: horizontal-tb;
+    }
+  }
+  &__group {
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+@keyframes animate-events-entry {
+  0% {
+    transform: translateY(-200vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.event {
+  width: 300px;
+  height: 500px;
+  border-radius: 5px;
+  border: none;
+  opacity: 1;
+  box-shadow: 0 0 5px rgb(177, 177, 177);
+  font-family: "Playfair Display", serif;
+  position: relative;
+  transform: translateY(-200vh);
+  animation: animate-events-entry 1s ease-in-out forwards;
+
+  @media screen and (min-width: 400px) {
+    width: 300px;
+  }
+  &__flyer img {
+    display: block;
+    object-fit: cover;
+    height: 300px;
+    width: 300px;
+    &:before {
+      content: "no image";
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      position: absolute;
+      height: 300px;
+      width: 300px;
+      background-color: #494949;
+    }
+  }
+  &__title {
+    color: var(--main-dark-color);
+    padding: 20px;
+    font-weight: bold;
+    height: 60px;
+    font-size: 0.8rem;
+    display: flex;
+    .tag {
+      display: inline-block;
+      display: block;
+      text-align: center;
+      padding: 2px 7px;
+      margin-right: 10px;
+      flex-grow: 0;
+      height: fit-content;
+      color: white;
+      font-family: "Roboto", sans-serif;
+    }
+  }
+  &__footer {
+    position: relative;
+    min-height: 100px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    &__start,
+    &__ends {
+      font-size: 0.8rem;
+      position: relative;
+      font-family: "Robotoy", sans-serif;
+      font-weight: 500;
+      &::before {
+        content: "|";
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        top: -2px;
+        left: -10px;
+        font-weight: bolder;
+        color: #494949;
+      }
+    }
+    .plus_icon {
+      position: absolute;
+      right: 20px;
+      bottom: 50px;
+      background-color: var(--main-color);
+      width: fit-content;
+      padding: 3px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      color: white;
+      border: 1px transparent solid;
+      cursor: pointer;
+      transition: var(--btn-transitions);
+      box-shadow: 0 0 8px var(--main-light-color);
+      &:hover {
+        background-color: white;
+        color: var(--main-color);
+        border: 1px #494949 solid;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.event_venue {
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  margin-bottom: 10px;
+  color: blue;
+  cursor: pointer;
+}
+
+.events .not-found {
+  text-align: center;
+}
+
+.emoji {
+  white-space: nowrap;
+}

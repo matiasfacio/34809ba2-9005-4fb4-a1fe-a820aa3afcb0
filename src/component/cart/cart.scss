@@ -1,0 +1,137 @@
+.pagination {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  gap: 10px;
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+}
+
+.event_on-cart-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: fit-content;
+  border-bottom: 1px var(--main-light-color) dotted;
+  padding-block: 20px;
+}
+
+.single-event-cart {
+  display: grid;
+  grid-template-columns: 3fr 0.5fr minmax(auto, 100px);
+  place-items: start;
+  width: 100%;
+  font-size: 0.8rem;
+  img {
+    border-radius: 8px;
+    display: block;
+    &:before {
+      content: "no image";
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      position: absolute;
+      height: 70px;
+      width: 70px;
+      border-radius: 8px;
+      background-color: #494949;
+    }
+  }
+  & > div {
+    max-width: 45ch;
+  }
+}
+
+.empty-cart {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  color: var(--main-dark-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_pay-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.btn_pay-now {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2px;
+  background-color: var(--main-color);
+  color: white;
+  transition: var(--btn-transitions);
+  font-weight: 600;
+  &:hover {
+    color: var(--main-color);
+    background-color: white;
+    border: 1px #494949 solid;
+    transform: scale(1.1);
+  }
+  &:disabled {
+    background-color: var(--main-light-color);
+    pointer-events: none;
+  }
+}
+
+.delete_icon {
+  align-self: flex-end;
+  background-color: white;
+  width: fit-content;
+  padding: 3px 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: white;
+  border: 1px transparent solid;
+  cursor: pointer;
+  transition: var(--btn-transitions);
+}
+
+.item-deleted-notification {
+  color: var(--main-color);
+  font-size: 0.8rem;
+}
+
+.modal__container {
+  &__internal-container {
+    overflow: hidden;
+    height: 280px;
+    border-radius: 10px;
+    position: relative;
+    padding: 0 20px;
+  }
+
+  &__internal-header {
+    padding: 20px;
+    & > div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2 {
+      font-size: 1.3rem;
+      color: var(--main-dark-color);
+    }
+  }
+
+  &__internal-footer {
+    position: absolute;
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+.search_container {
+  position: relative;
+  &::before {
+    content: url("../../images/search.svg");
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    transform: scale(0.8);
+    left: 4px;
+    top: 7px;
+  }
+}

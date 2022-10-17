@@ -1,0 +1,82 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  background-color: var(--main-dark-color);
+  height: 70px;
+  padding-inline: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
+  z-index: 1;
+}
+
+.navbar_left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar_right {
+  width: 100px;
+}
+
+#search_input {
+  color: white;
+  padding: 10px 30px;
+  background-color: var(--main-color);
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+}
+
+#search_input::-webkit-input-placeholder {
+  color: white;
+}
+
+#search_input:-ms-input-placeholder {
+  color: white;
+}
+
+#search_input::-ms-input-placeholder {
+  color: white;
+}
+
+#search_input::placeholder {
+  color: white;
+}
+
+.btn_filter {
+  justify-self: flex-start;
+}
+
+.btn_filter,
+.btn_shopping-cart {
+  border: none;
+  background-color: transparent;
+}
+
+.btn_shopping-cart {
+  justify-self: flex-end;
+  position: relative;
+  cursor: pointer;
+}
+
+.btn_shopping-cart .btn_shopping-cart-value {
+  position: absolute;
+  color: white;
+  top: -9px;
+  right: -5px;
+  font-weight: bolder;
+  background-color: red;
+  padding: 2px 5px;
+  border-radius: 50%;
+}
+/*# sourceMappingURL=navbar.css.map */
