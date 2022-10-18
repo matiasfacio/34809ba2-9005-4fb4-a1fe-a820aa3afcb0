@@ -11,6 +11,24 @@ import { Tag, useEvents } from "../../context/EventsContext";
 import { logoStyle } from "../events/Events";
 
 const NavBar = () => {
+  return (
+    <div className="navbar">
+      <div className="navbar_left">
+        <Search />
+        <div className="filter">
+          <FilterByTag />
+        </div>
+      </div>
+      <div className="navbar_right">
+        <ShoppingCartIcon />
+      </div>
+    </div>
+  );
+};
+
+export default NavBar;
+
+const FilterByTag = () => {
   const { sortByTag, clearFilters } = useEvents();
 
   const handleSort = (tag: Tag | "no-filter") => {
@@ -22,34 +40,22 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar">
-      <div className="navbar_left">
-        <Search />
-        <div className="filter">
-          <label className="filter__label">
-            Filter by:
-            <select
-              onChange={(e) => handleSort(e.target.value as Tag)}
-              defaultValue="no-filter"
-            >
-              <option value="no-filter">no-filter</option>
-              {Object.keys(logoStyle).map((tag) => (
-                <option value={tag} key={tag}>
-                  {tag}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-      </div>
-      <div className="navbar_right">
-        <ShoppingCartIcon />
-      </div>
-    </div>
+    <label className="filter__label">
+      Filter by:
+      <select
+        onChange={(e) => handleSort(e.target.value as Tag)}
+        defaultValue="no-filter"
+      >
+        <option value="no-filter">no-filter</option>
+        {Object.keys(logoStyle).map((tag) => (
+          <option value={tag} key={tag}>
+            {tag}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 };
-
-export default NavBar;
 
 const ShoppingCartIcon = () => {
   const { totalItemInCart } = useShoppingCart();
@@ -82,7 +88,7 @@ const ShoppingCartIcon = () => {
             <ModalCartContainer />
           </div>
           <div className="modal__container__internal-footer">
-            <ModalCartFooter />
+            <ModalCartFooter onClose={handleModalClose} />
           </div>
         </Modal>
       )}

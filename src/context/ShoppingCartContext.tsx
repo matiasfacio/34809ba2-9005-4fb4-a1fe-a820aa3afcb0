@@ -7,6 +7,7 @@ interface ShoppingCart {
   totalItemInCart: number;
   findItemInCart: (id: number) => Event | undefined;
   removeItemFromCart: (id: number) => void;
+  clearCart: () => void;
 }
 
 const ShoppingCartContext = createContext({} as ShoppingCart);
@@ -29,6 +30,10 @@ export const ShoppingCartContextProvider = ({
   const findItemInCart = (id: number) =>
     shoppingCart.find((event) => event._id === id);
 
+  const clearCart = () => {
+    setShoppingCart([]);
+  };
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -37,6 +42,7 @@ export const ShoppingCartContextProvider = ({
         totalItemInCart,
         findItemInCart,
         removeItemFromCart,
+        clearCart,
       }}
     >
       {children}
